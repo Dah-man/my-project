@@ -2,13 +2,13 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
 name: Java CI with Gradle
-
+# catch evenement push & pull_request.
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+# les actions à traiter suite au catch
 jobs:
   build-java:
 
@@ -31,7 +31,8 @@ jobs:
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        image: elkoussaimi/test-ci
+      #Définir le repo image pour contenir la nouvelle image
+        image: abderrahmane19/rep02
         tag: v2
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
